@@ -35,8 +35,13 @@ public class PhoneController {
     @Transactional
     public ResponseEntity<Phone> addPhone(@RequestBody @Valid PhoneForm phoneForm){
         Phone phone = phoneForm.convert(clientRepository);
-        Phone newPhone = phoneService.addPhone(phone);
-        return new ResponseEntity<>(newPhone, HttpStatus.CREATED);
+        if(phone != null){
+            Phone newPhone = phoneService.addPhone(phone);
+            return new ResponseEntity<>(newPhone, HttpStatus.CREATED);
+        }else{
+            return new ResponseEntity<>(phone, HttpStatus.OK);
+        }
+
     }
 
     @DeleteMapping("/delete/{id}")

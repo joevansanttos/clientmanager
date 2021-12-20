@@ -14,7 +14,12 @@ public class ClientForm {
     @NotNull
     @NotEmpty
     @NotBlank
-    private String name;
+    private String firstName;
+
+    @NotNull
+    @NotEmpty
+    @NotBlank
+    private String lastName;
 
     @NotNull
     @NotEmpty
@@ -26,12 +31,20 @@ public class ClientForm {
     @NotBlank
     private String district;
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getAddress() {
@@ -53,7 +66,7 @@ public class ClientForm {
 
     public Client convert() {
 
-        return new Client(name, address, district);
+        return new Client(firstName, lastName, address, district);
     }
 
 

@@ -39,11 +39,18 @@ public class PhoneForm {
 
         Optional<Client> optional = clientRepository.findById(Long.valueOf(clientId));
 
-        if (optional.isPresent()) {
+        boolean validPhone = validatePhoneNumber(numbers);
+
+
+        if (optional.isPresent() && validPhone) {
             Client newClient = optional.get();
             return new Phone(numbers, newClient);
         }else{
             return null;
         }
+    }
+
+    private static boolean validatePhoneNumber(String phoneNo) {
+        return phoneNo.chars().filter(c -> c != '.' && c != '-' && c != ' ').distinct().count() > 1;
     }
 }

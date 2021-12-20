@@ -14,7 +14,8 @@ public class Client implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private Long id;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String address;
     private String district;
 
@@ -25,8 +26,9 @@ public class Client implements Serializable {
     public Client() {
     }
 
-    public Client(String name, String address, String district) {
-        this.name = name;
+    public Client(String firstName, String lastName,  String address, String district) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.address = address;
         this.district = district;
     }
@@ -39,12 +41,20 @@ public class Client implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getAddress() {
