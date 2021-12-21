@@ -18,6 +18,9 @@ public class PhoneService {
         this.phoneRepository = phoneRepository;
     }
 
+    public Phone updatePhone(Phone phone) {
+        return phoneRepository.save(phone);
+    }
 
     public Phone addPhone(Phone phone){
         return phoneRepository.save(phone);
@@ -30,4 +33,9 @@ public class PhoneService {
     public Phone findPhone(String numbers) {
         return phoneRepository.findPhoneByNumbers(numbers);
     }
+
+    public Phone findPhoneById(Long id) {
+        return phoneRepository.findPhoneById(id);
+    }
+
 }

@@ -8,6 +8,7 @@ import com.joevan.clientmanager.repository.ClientRepository;
 import com.joevan.clientmanager.service.ClientService;
 import com.joevan.clientmanager.service.PhoneService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -54,8 +55,14 @@ public class PhoneController {
     public ResponseEntity<Phone> phoneExist(@PathVariable("numbers") String numbers) {
         Phone phone = phoneService.findPhone(numbers);
         return new ResponseEntity<>(phone, HttpStatus.OK);
+    }
 
-
-
+    @PutMapping("/update")
+    public ResponseEntity<Phone> updateEmployee(@RequestBody Phone phone){
+        Phone phoneFind = phoneService.findPhoneById(phone.getId());
+        phoneFind.setNumbers(phone.getNumbers());
+        System.out.println(phone.getNumbers());
+        Phone updatePhone = phoneService.updatePhone(phoneFind);
+        return new ResponseEntity<>(updatePhone, HttpStatus.OK);
     }
 }
