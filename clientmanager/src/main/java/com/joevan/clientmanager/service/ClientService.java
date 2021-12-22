@@ -28,8 +28,16 @@ public class ClientService {
         return clientRepository.save(client);
     }
 
-    public void deleteClient(Long id){
+    public void deleteClient(Long id) {
         clientRepository.deleteClientById(id);
+    }
+
+    public Client findClientById(Long id) {
+        return clientRepository.findClientById(id);
+    }
+
+    public Client updateClient(Client client) {
+        return clientRepository.save(client);
     }
 
 }

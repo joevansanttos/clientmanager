@@ -61,7 +61,6 @@ public class PhoneController {
     public ResponseEntity<Phone> updateEmployee(@RequestBody Phone phone){
         Phone phoneFind = phoneService.findPhoneById(phone.getId());
         phoneFind.setNumbers(phone.getNumbers());
-        System.out.println(phone.getNumbers());
         Phone updatePhone = phoneService.updatePhone(phoneFind);
         return new ResponseEntity<>(updatePhone, HttpStatus.OK);
     }
