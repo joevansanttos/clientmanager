@@ -40,7 +40,7 @@ public class PhoneController {
             Phone newPhone = phoneService.addPhone(phone);
             return new ResponseEntity<>(newPhone, HttpStatus.CREATED);
         }else{
-            return new ResponseEntity<>(phone, HttpStatus.OK);
+            return new ResponseEntity<>(phone, HttpStatus.BAD_REQUEST);
         }
 
     }

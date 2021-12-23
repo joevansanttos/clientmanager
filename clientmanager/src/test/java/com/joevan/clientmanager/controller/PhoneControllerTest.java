@@ -20,17 +20,20 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-class PhoneControllerTest {
+public class PhoneControllerTest {
 
     @Autowired
     private MockMvc mockMvc; //
 
     @Test
-    public void deveriaDevolver400CasoDadosDeAutenticacaoEstejamIncorretos() throws Exception {
+    public void return400IfNumbersIsEquals() throws Exception {
 
-        URI uri = new URI("/add");
+        URI uri = new URI("/phone/add");
 
-        String json = "{\"numbers\":123232324\"\",\"clientId\": 22}";
+        String json = "{" +
+                "\"numbers\":\"9999999999\"," +
+                "\"clientId\": 22" +
+                "}";
 
         mockMvc
                 .perform(MockMvcRequestBuilders
@@ -40,6 +43,47 @@ class PhoneControllerTest {
                 .andExpect(MockMvcResultMatchers
                         .status()
                         .is(400));
+    }
+
+    @Test
+    public void return400IfNumbersAreNull() throws Exception {
+
+        URI uri = new URI("/phone/add");
+
+        String json = "{" +
+                "\"numbers\":\"\"," +
+                "\"clientId\": 22" +
+                "}";
+
+
+        mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post(uri)
+                        .content(json)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers
+                        .status()
+                        .is(400));
+    }
+
+    @Test
+    public void return200IfNumbersAreValid() throws Exception {
+
+        URI uri = new URI("/phone/add");
+
+        String json = "{" +
+                "\"numbers\":\"1198232323\"," +
+                "\"clientId\": 22" +
+                "}";
+
+        mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post(uri)
+                        .content(json)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers
+                        .status()
+                        .is(201));
     }
 
 }
