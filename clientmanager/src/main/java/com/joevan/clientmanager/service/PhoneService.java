@@ -7,11 +7,14 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
+/**
+ * Serviço para adicionar, atualizar e excluir telefones
+ */
 @Service
 @Transactional
 public class PhoneService {
 
-    private PhoneRepository phoneRepository;
+    private final PhoneRepository phoneRepository;
 
     @Autowired
     public PhoneService(PhoneRepository phoneRepository) {

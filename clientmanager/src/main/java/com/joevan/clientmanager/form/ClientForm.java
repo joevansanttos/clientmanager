@@ -1,13 +1,10 @@
 package com.joevan.clientmanager.form;
 
 import com.joevan.clientmanager.model.Client;
-import com.joevan.clientmanager.model.Phone;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.util.*;
-import java.util.stream.Collectors;
 
 public class ClientForm {
 

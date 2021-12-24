@@ -1,6 +1,5 @@
 package com.joevan.clientmanager.form;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.joevan.clientmanager.model.Client;
 import com.joevan.clientmanager.model.Phone;
 import com.joevan.clientmanager.repository.ClientRepository;
@@ -10,6 +9,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Optional;
 
+/**
+ * Classe que representa como um telefone deve ser recebido
+ */
 public class PhoneForm {
 
     @NotNull
@@ -17,6 +19,9 @@ public class PhoneForm {
     @NotBlank
     private String numbers;
 
+    @NotNull
+    @NotEmpty
+    @NotBlank
     private Long clientId;
 
     public String getNumbers() {

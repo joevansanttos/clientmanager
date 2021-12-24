@@ -1,0 +1,6 @@
+com.joevan.clientmanager
+com.joevan.clientmanager.controller
+com.joevan.clientmanager.form
+com.joevan.clientmanager.model
+com.joevan.clientmanager.repository
+com.joevan.clientmanager.service

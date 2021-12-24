@@ -3,6 +3,9 @@ package com.joevan.clientmanager.model;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * Representa um Telefone
+ */
 @Entity
 public class Phone implements Serializable {
 

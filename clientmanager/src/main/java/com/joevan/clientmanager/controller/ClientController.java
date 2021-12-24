@@ -2,7 +2,6 @@ package com.joevan.clientmanager.controller;
 
 import com.joevan.clientmanager.form.ClientForm;
 import com.joevan.clientmanager.model.Client;
-import com.joevan.clientmanager.model.Phone;
 import com.joevan.clientmanager.service.ClientService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,12 +21,21 @@ public class ClientController {
         this.clientService = clientService;
     }
 
+    /**
+     * Esse metodo esta sendo utilizado para listar todos os clientes cadastrados
+     * @return Retorna todos os clientes
+     */
     @GetMapping("/all")
     public ResponseEntity<List<Client>> getAllClients(){
         List<Client> clients = clientService.findAllClients();
         return new ResponseEntity<>(clients, HttpStatus.OK);
     }
 
+    /**
+     * Esse metodo esta sendo utilizado para adicionar um cliente
+     * @param clientForm Parametro no formato de cliente para ser cadastrado
+     * @return Retorna OK caso cliente possa ser cadastrado
+     */
     @PostMapping("/add")
     @Transactional
     public ResponseEntity<Client> addClient(@RequestBody @Valid ClientForm clientForm){
@@ -36,18 +44,23 @@ public class ClientController {
         return new ResponseEntity<>(newClient, HttpStatus.CREATED);
     }
 
+    /**
+     * Esse metodo esta sendo utilizado para excluir um cliente
+     * @param id Paramertro passado para encontrar cliente
+     * @return Retorna OK caso o cliente seja excluido
+     */
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteClient(@PathVariable("id") Long id) {
         clientService.deleteClient(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/find/{id}")
-    public ResponseEntity<Client> findClient(@PathVariable("id") Long id) {
-        Client findClient = clientService.findClientById(id);
-        return new ResponseEntity<Client>(HttpStatus.OK);
-    }
 
+    /**
+     * Esse metodo esta sendo utilizado para atualizar um cliente
+     * @param client Parametro passado para encontrar e atualizar cliente
+     * @return Retorna OK caso o cliente seja atualizado
+     */
     @PutMapping("/update")
     public ResponseEntity<Client> updateClient(@RequestBody Client client){
         System.out.println(client.getId());
@@ -57,6 +70,6 @@ public class ClientController {
         findClient.setAddress(client.getAddress());
         findClient.setDistrict(client.getDistrict());
         Client updateClient = clientService.updateClient(findClient);
-        return new ResponseEntity<>(findClient, HttpStatus.OK);
+        return new ResponseEntity<>(updateClient, HttpStatus.OK);
     }
 }
