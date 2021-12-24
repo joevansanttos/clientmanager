@@ -46,7 +46,6 @@ public class PhoneForm {
 
         boolean validPhone = validatePhoneNumber(numbers);
 
-
         if (optional.isPresent() && validPhone) {
             Client newClient = optional.get();
             return new Phone(numbers, newClient);

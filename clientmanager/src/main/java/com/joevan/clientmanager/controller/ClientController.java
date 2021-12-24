@@ -22,7 +22,7 @@ public class ClientController {
     }
 
     /**
-     * Esse metodo esta sendo utilizado para listar todos os clientes cadastrados
+     * Esse método esta sendo utilizado para listar todos os clientes cadastrados
      * @return Retorna todos os clientes
      */
     @GetMapping("/all")
@@ -32,8 +32,8 @@ public class ClientController {
     }
 
     /**
-     * Esse metodo esta sendo utilizado para adicionar um cliente
-     * @param clientForm Parametro no formato de cliente para ser cadastrado
+     * Esse método esta sendo utilizado para adicionar um cliente
+     * @param clientForm Parâmetro no formato de cliente para ser cadastrado
      * @return Retorna OK caso cliente possa ser cadastrado
      */
     @PostMapping("/add")
@@ -45,9 +45,9 @@ public class ClientController {
     }
 
     /**
-     * Esse metodo esta sendo utilizado para excluir um cliente
-     * @param id Paramertro passado para encontrar cliente
-     * @return Retorna OK caso o cliente seja excluido
+     * Esse método esta sendo utilizado para excluir um cliente
+     * @param id Parâmetro passado para encontrar cliente
+     * @return Retorna OK caso o cliente seja excluído
      */
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteClient(@PathVariable("id") Long id) {
@@ -57,8 +57,8 @@ public class ClientController {
 
 
     /**
-     * Esse metodo esta sendo utilizado para atualizar um cliente
-     * @param client Parametro passado para encontrar e atualizar cliente
+     * Esse método esta sendo utilizado para atualizar um cliente
+     * @param client Parâmetro passado para encontrar e atualizar cliente
      * @return Retorna OK caso o cliente seja atualizado
      */
     @PutMapping("/update")

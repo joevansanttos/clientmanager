@@ -24,7 +24,7 @@ public class PhoneController {
     private final ClientRepository clientRepository;
 
     /**
-     * Classe de Serviços que busca em Repositorys dados dos telefones
+     * Classe de Serviços que busca em Repositório dados dos telefones
      */
     private final PhoneService phoneService;
 
@@ -35,8 +35,8 @@ public class PhoneController {
 
 
     /**
-     * Esse metodo esta sendo utilizado para adicionar um telefone
-     * @param phoneForm Parametro para ser addicionado
+     * Esse método esta sendo utilizado para adicionar um telefone
+     * @param phoneForm Parâmetro para ser adicionado
      * @return 201 se o telefone for adicionado e 400 caso nao seja
      */
     @PostMapping("/add")
@@ -53,9 +53,9 @@ public class PhoneController {
     }
 
     /**
-     * Esse metodo esta sendo utilizado para excluir um telefone
-     * @param id Parametro recebido com id de telefone para ser exlcluido
-     * @return Retorna ok caso cosniga deletar
+     * Esse método esta sendo utilizado para excluir um telefone
+     * @param id Parâmetro recebido de telefone para ser excluído
+     * @return Retorna ok caso consiga excluir
      */
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deletePhone(@PathVariable("id") Long id) {
@@ -64,8 +64,8 @@ public class PhoneController {
     }
 
     /**
-     * Esse metodo esta sendo utilizado para verificar se o telefone existe pelos seus numeros
-     * @param numbers Parametro do tipo string para encontrar telefone
+     * Esse método esta sendo utilizado para verificar se o telefone existe pelos seus números
+     * @param numbers Parâmetro do tipo string para encontrar telefone
      * @return Retorna ok caso telefone exista
      */
     @GetMapping("/exists/{numbers}")
@@ -75,9 +75,9 @@ public class PhoneController {
     }
 
     /**
-     * Esse metodo esta sendo utilizado para atualizar um telefone
-     * @param phone Parametro passado para ser atualizado
-     * @return Retorna Ok caso consiga exluir
+     * Esse método esta sendo utilizado para atualizar um telefone
+     * @param phone Parâmetro passado para ser atualizado
+     * @return Retorna Ok caso consiga excluir
      */
     @PutMapping("/update")
     public ResponseEntity<Phone> updateEmployee(@RequestBody Phone phone){

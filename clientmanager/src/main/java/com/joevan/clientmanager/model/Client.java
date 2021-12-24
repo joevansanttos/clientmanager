@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Representa um cliente
+ * Entidade que Representa um cliente
  */
 @Entity
 public class Client implements Serializable {
@@ -22,7 +22,7 @@ public class Client implements Serializable {
 
     /**
      * Lista onde relaciona 1 cliente a diversos telefones e diversos telefones para 1 cliente
-     * Tipo de mapeamento Cascade serve para atualizar as classes relaiconadas ao Client
+     * Tipo de mapeamento Cascade serve para atualizar as classes relacionadas ao Cliente
      */
     @OneToMany (cascade=CascadeType.ALL, mappedBy="client", fetch=FetchType.LAZY)
     private List<Phone> phones = new ArrayList<>();
@@ -32,7 +32,7 @@ public class Client implements Serializable {
     }
 
     /**
-     * Cria um cliente, com especificos nome, sobrenome, endereço e bairro
+     * Cria um cliente, com específicos nome, sobrenome, endereço e bairro
      * @param firstName Nome do Cliente
      * @param lastName Sobrenome do Cliente
      * @param address Endereço do Cliente
